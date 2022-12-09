@@ -1,11 +1,9 @@
 import mongoose from 'mongoose';
-import { __prod__ } from '../constants';
+// import { __prod__ } from '../constants';
 
 export const connectDB = async () => {
   try {
-    const uri = __prod__
-      ? process.env.MONGO_PROD_URI
-      : process.env.MONGO_DEV_URI;
+    const uri = process.env.MONGO_URI
     console.log('Mongodb uri', uri);
     const conn = await mongoose.connect(uri as string, {
       useNewUrlParser: true,

@@ -25,3 +25,5 @@ yarn-error.log*
 short-cuts.txt
 
 config.env
+
+dist

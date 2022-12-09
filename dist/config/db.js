@@ -14,12 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.connectDB = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
-const constants_1 = require("../constants");
 exports.connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const uri = constants_1.__prod__
-            ? process.env.MONGO_PROD_URI
-            : process.env.MONGO_DEV_URI;
+        const uri = process.env.MONGO_URI;
         console.log('Mongodb uri', uri);
         const conn = yield mongoose_1.default.connect(uri, {
             useNewUrlParser: true,
