@@ -12,7 +12,7 @@
 
 ![Dashboard preview](img/dash.png)
 
-## Technology stack
+## Technology stack.
 
 - Typescript
 - Reactjs, Redux, styled-components, saas, react-motion (Frontend).
