@@ -20,7 +20,7 @@ const app: Application = express();
 // console.log(os.constants);
 // console.log('Architecture: ' + os.arch());
 
-// Logging
+// Load env variables
 if (!__prod__) {
   const dotenv = require('dotenv');
   dotenv.config({ path: './config.env' });
@@ -74,4 +74,4 @@ app.use('/code', code);
  */
 app.use('/transaction', transaction);
 
-export { app}
+export  {app}

@@ -44,7 +44,7 @@ export const register = async (req: Request, res: Response) => {
       id: resp._id,
     };
 
-    const token = await generateToken(obj, process.env.SECRET_KEY as string);
+    const token = await generateToken(obj, process.env.SECRET_KEY!);
 
     return res.status(200).json({
       success: true,
@@ -75,7 +75,7 @@ export const login = async (req: Request, res: Response) => {
     // return
     const user = (await User.findOne({
       email,
-    }).lean()) as UserData;
+    }).lean());
     if (!user) {
       return res.status(200).json({
         success: false,
@@ -83,7 +83,7 @@ export const login = async (req: Request, res: Response) => {
       });
     }
 
-    const match = await bcrypt.compare(password, user.password);
+    const match = await bcrypt.compare(password, user.password!);
     if (!match) {
       return res.status(200).json({
         success: false,
@@ -92,13 +92,16 @@ export const login = async (req: Request, res: Response) => {
     }
     await User.updateOne({ email }, { lastLogin: new Date().toISOString() });
 
-    const { name, _id } = user as UserData;
-    const obj = {
-      name,
-      id: _id,
-    };
+    // const { name, _id } = user as UserData;
+    // const obj = {
+    //   name,
+    //   id: _id,
+    // };
 
-    const token = await generateToken(obj, process.env.SECRET_KEY as string);
+    const token = await generateToken({
+      name: user.email!,
+      id: user._id
+    }, process.env.SECRET_KEY!);
 
     return res.status(200).json({
       success: true,

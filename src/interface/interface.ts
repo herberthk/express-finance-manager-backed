@@ -1,6 +1,7 @@
+import { Types } from 'mongoose'
 export interface Token {
   name: string;
-  id: string;
+  id: Types.ObjectId;
 }
 
 export interface Register {
