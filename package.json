@@ -10,7 +10,7 @@
     "build": "tsc",
     "start": "cross-env NODE_ENV=production node build/index.js",
     "dev": "ts-node-dev --poll src/index.ts",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test-watch": "jest --watchAll"
   },
   "dependencies": {
