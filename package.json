@@ -8,7 +8,7 @@
   "scripts": {
     "gen-env": "gen-env-types config.env -o env.d.ts -e .",
     "build": "tsc",
-    "start": "cross-env NODE_ENV=production node build/index.js",
+    "start": "cross-env NODE_ENV=production bun run build/index.js",
     "dev": "ts-node-dev --poll src/index.ts",
     "test": "jest --passWithNoTests",
     "test-watch": "jest --watchAll"
@@ -16,6 +16,7 @@
   "dependencies": {
     "axios": "^1.2.1",
     "bcryptjs": "^2.4.3",
+    "ci-info": "^4.0.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "cross-env": "^7.0.2",

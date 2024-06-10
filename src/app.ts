@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from 'express';
 
 import cors from 'cors';
+import dotenv from 'dotenv';
 // import exphbs from 'express-handlebars';
 
 import { connectDB } from './config/db';
@@ -22,8 +23,7 @@ const app: Application = express();
 
 // Load env variables
 if (!__prod__) {
-  const dotenv = require('dotenv');
-  dotenv.config({ path: './config.env' });
+  dotenv.config();
 }
 
 if (!__prod__) {
