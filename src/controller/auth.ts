@@ -103,9 +103,11 @@ export const login = async (req: Request, res: Response) => {
       id: user._id
     }, process.env.SECRET_KEY!);
 
+    delete user.password;
+
     return res.status(200).json({
       success: true,
-      data: user,
+      data:user,
       token,
     });
   } catch (error) {
